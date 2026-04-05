@@ -15,4 +15,28 @@ public class ubs {
 	@Column
 	String nome;
 	
+	@Column
+	String cep;
+	
+	@Column
+	String rua;
+	
+	@Column
+	String n;
+	
+	@Column
+	String estado;
+	
+	@Column
+	String cidade;
+	
+	@Column
+	String bairro;
+
+	@Column
+	String ddd;
+	
+	@Column
+	String fone;
+	
 }
