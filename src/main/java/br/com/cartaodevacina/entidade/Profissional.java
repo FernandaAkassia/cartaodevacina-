@@ -1,6 +1,5 @@
 package br.com.cartaodevacina.entidade;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,35 +25,34 @@ public class Profissional {
 
 	@Column
 	String senha;
-	
-	
+
 	@Column
 	String cargo;
-	
+
 	@Column
 	String cpf;
-	
+
 	@Column
 	String cep;
-	
+
 	@Column
 	String endereco;
-	
+
 	@Column
 	String n;
-	
+
 	@Column
 	String estado;
-	
+
 	@Column
 	String cidade;
-	
+
 	@Column
 	String bairro;
 
 	@Column
 	String ddd;
-	
+
 	@Column
 	String telefone;
 
