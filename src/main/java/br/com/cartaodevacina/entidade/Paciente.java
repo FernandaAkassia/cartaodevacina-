@@ -7,40 +7,39 @@ import jakarta.persistence.Table;
 
 @Table
 @Entity
-public class paciente {
-	
+public class Paciente {
+
 	@Id
 	int id;
-	
+
 	@Column
 	String nome;
-	
+
 	@Column
 	String cpf;
-	
+
 	@Column
 	String cep;
-	
+
 	@Column
-	String rua;
-	
+	String endereco;
+
 	@Column
 	String n;
-	
+
 	@Column
 	String estado;
-	
+
 	@Column
 	String cidade;
-	
+
 	@Column
 	String bairro;
 
 	@Column
 	String ddd;
-	
+
 	@Column
-	String fone;
-	
+	String telefone;
 
 }
