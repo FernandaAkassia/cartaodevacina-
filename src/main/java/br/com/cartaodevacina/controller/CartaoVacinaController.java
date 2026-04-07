@@ -13,6 +13,7 @@ import br.com.cartaodevacina.servece.CartaoVacinaService;
 @RestController
 @RequestMapping("/cartaovacina")
 public class CartaoVacinaController {
+
 	@Autowired
 	CartaoVacinaService service;
 

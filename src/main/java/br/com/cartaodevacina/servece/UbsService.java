@@ -23,7 +23,6 @@ public class UbsService {
 
 	public List<Ubs> buscarPorAproximacao(String string) {
 
-		System.out.println(ubsRepository.findByNomeContaining(string));
 		return ubsRepository.findByNomeContaining(string);
 
 	}

@@ -14,7 +14,7 @@ public class ProfissionalService {
 	public boolean login(String cpf, String senha) {
 
 		boolean prof = profissionalRepository.existsByCpfAndSenha(cpf, senha);
-		System.out.println(prof);
+
 		return prof;
 
 	}

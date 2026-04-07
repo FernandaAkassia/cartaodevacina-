@@ -17,7 +17,7 @@ public class VacinaService {
 	public List<Vacina> buscarTodas() {
 
 		List<Vacina> listaVacina = repository.findAll();
-		System.out.println(listaVacina);
+
 		return listaVacina;
 
 	}

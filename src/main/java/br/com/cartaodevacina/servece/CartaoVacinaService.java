@@ -16,7 +16,6 @@ public class CartaoVacinaService {
 
 	public CartaoVacina salvar(CartaoVacina cartaoVacina) {
 
-		System.out.println(cartaoVacinaRepository.save(cartaoVacina));
 		return cartaoVacinaRepository.save(cartaoVacina);
 
 	}
@@ -24,8 +23,6 @@ public class CartaoVacinaService {
 	public List<CartaoVacina> buscaPorCpf(String cpf) {
 
 		List<CartaoVacina> lista = cartaoVacinaRepository.findByPacienteCpf(cpf);
-
-		System.out.println(lista);
 
 		return lista;
 

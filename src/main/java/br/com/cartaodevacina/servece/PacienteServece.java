@@ -15,7 +15,6 @@ public class PacienteServece {
 	public Paciente buscarPorCpf(String cpf) {
 
 		Paciente retorno = pacienteRepository.findByCpf(cpf);
-		System.out.println(retorno);
 
 		return retorno;
 
