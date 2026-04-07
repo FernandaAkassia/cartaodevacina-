@@ -1,4 +1,4 @@
-package br.com.cartaodevacina.entidade;
+package br.com.cartaodevacina.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Ubs {
+public class Vacina {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,30 +27,5 @@ public class Ubs {
 	String nome;
 
 	@Column
-	String cep;
-
-	@Column
-	String endereco;
-
-	@Column
-	String n;
-
-	@Column
-	String estado;
-
-	@Column
-	String cidade;
-
-	@Column
-	String bairro;
-
-	@Column
-	String ddd;
-
-	@Column
-	String telefone;
-
-	@Column
-	String cnes;
-
+	String categoria;
 }

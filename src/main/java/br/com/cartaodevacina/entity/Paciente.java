@@ -1,4 +1,4 @@
-package br.com.cartaodevacina.entidade;
+package br.com.cartaodevacina.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Vacina {
+public class Paciente {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,5 +27,30 @@ public class Vacina {
 	String nome;
 
 	@Column
-	String categoria;
+	String cpf;
+
+	@Column
+	String cep;
+
+	@Column
+	String endereco;
+
+	@Column
+	String n;
+
+	@Column
+	String estado;
+
+	@Column
+	String cidade;
+
+	@Column
+	String bairro;
+
+	@Column
+	String ddd;
+
+	@Column
+	String telefone;
+
 }

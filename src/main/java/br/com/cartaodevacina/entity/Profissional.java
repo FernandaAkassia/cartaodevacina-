@@ -1,4 +1,6 @@
-package br.com.cartaodevacina.entidade;
+package br.com.cartaodevacina.entity;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,6 +32,7 @@ public class Profissional {
 	Integer registro;
 
 	@Column
+	@JsonIgnore
 	String senha;
 
 	@Column

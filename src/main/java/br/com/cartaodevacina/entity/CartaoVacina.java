@@ -1,4 +1,4 @@
-package br.com.cartaodevacina.entidade;
+package br.com.cartaodevacina.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,4 +1,4 @@
-package br.com.cartaodevacina.entidade;
+package br.com.cartaodevacina.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Paciente {
+public class Ubs {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,9 +25,6 @@ public class Paciente {
 
 	@Column
 	String nome;
-
-	@Column
-	String cpf;
 
 	@Column
 	String cep;
@@ -52,5 +49,8 @@ public class Paciente {
 
 	@Column
 	String telefone;
+
+	@Column
+	String cnes;
 
 }
