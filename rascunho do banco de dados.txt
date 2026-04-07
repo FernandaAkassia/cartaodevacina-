@@ -1,0 +1,61 @@
+Tabela -> Paciente
+
+Colunas: 
+	 id;
+	 nome;
+	 cpf;
+	 cep;
+	 endereco;
+	 n;
+	 estado;
+	 cidade;
+	 bairro;
+	 ddd;
+	 telefone;
+
+-----------------------------------------------------
+
+Tabela -> Profissional
+
+Colunas: 
+	id;
+	nome;
+	registro;
+	senha;
+	cargo;
+	cpf;
+	cep;
+	endereco;
+	n;
+	estado;
+	cidade;
+	bairro;
+	ddd;
+	telefone;
+	email;
+
+-----------------------------------------------------
+
+Tabela -> Ubs
+
+Colunas: 
+	id;
+	nome;
+	cep;
+	endereco;
+	n;
+	estado;
+	cidade;
+	bairro;
+	ddd;
+	telefone;
+	cnes;
+
+-----------------------------------------------------
+
+Tabela -> Vacina
+
+Coluna: 
+	id;
+	nome;
+	categoria;
