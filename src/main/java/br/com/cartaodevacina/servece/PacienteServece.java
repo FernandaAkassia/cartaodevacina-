@@ -12,10 +12,18 @@ public class PacienteServece {
 	@Autowired
 	private PacienteRepository pacienteRepository;
 
-	public Paciente buscarporcpf(String cpf) {
+	public Paciente buscarPorCpf(String cpf) {
 
 		Paciente retorno = pacienteRepository.findByCpf(cpf);
 		System.out.println(retorno);
+
+		return retorno;
+
+	}
+
+	public Paciente salvarPaciente(Paciente paciente) {
+
+		Paciente retorno = pacienteRepository.save(paciente);
 
 		return retorno;
 

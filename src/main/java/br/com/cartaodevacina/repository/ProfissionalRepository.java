@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import br.com.cartaodevacina.entidade.Profissional;
 
 @Repository
-public interface ProfissionalRepository extends JpaRepository<Profissional, Integer>{
+public interface ProfissionalRepository extends JpaRepository<Profissional, Integer> {
+
+	boolean existsByCpfAndSenha(String Cpf, String Senha);
 
 }

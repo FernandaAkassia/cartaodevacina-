@@ -9,19 +9,25 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table
 @Data
-public class cartaoVacina {
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class CartaoVacina {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int id;
+	Integer id;
 
 	@JoinColumn
-	@OneToOne
+	@ManyToOne
 	Paciente paciente;
 
 	@JoinColumn

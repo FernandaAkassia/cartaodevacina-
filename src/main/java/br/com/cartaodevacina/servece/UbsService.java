@@ -1,5 +1,6 @@
 package br.com.cartaodevacina.servece;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,13 @@ public class UbsService {
 	public Optional<Ubs> buscarPorId(int numero) {
 
 		return ubsRepository.findById(numero);
+
+	}
+
+	public List<Ubs> buscarPorAproximacao(String string) {
+
+		System.out.println(ubsRepository.findByNomeContaining(string));
+		return ubsRepository.findByNomeContaining(string);
 
 	}
 }
