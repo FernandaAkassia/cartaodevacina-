@@ -1,3 +1,3 @@
 INSERT INTO paciente (CPF,NOME,DDD) 
-		VALUES (10363142436,'Anderson Galindro',81);
+		VALUES (321321,'EduardinhoDosTeclados',81);
 COMMIT;

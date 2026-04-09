@@ -1,3 +1,3 @@
-INSERT INTO profissional (CPF,SENHA,EMAIL,CARGO,NOME,NUMERO,DDD,REGISTRO) 
-VALUES (10363142436,9411,'real.fake@gmail.com','Dono','Anderson Galindro',1,81,'SEM REGISTRO');
+INSERT INTO profissional (CPF,SENHA,EMAIL,CARGO,NOME,N,DDD,REGISTRO) 
+VALUES (123123,9411,'real.fake@gmail.com','Dono','ZezinhoDosTeclados',1,81,'5454');
 COMMIT;
