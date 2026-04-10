@@ -32,7 +32,7 @@ public class PacienteController {
 
 		Paciente pac = service.salvarPaciente(paciente);
 
-		return paciente;
+		return pac;
 	}
 
 	@GetMapping("/chamar_id")
