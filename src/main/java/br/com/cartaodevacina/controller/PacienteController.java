@@ -18,28 +18,29 @@ public class PacienteController {
 
 	@Autowired
 	PacienteService service;
-	
-	@GetMapping("/buscar")
-	public Paciente burcar(String cpf){
-		
+
+	@GetMapping("/buscar_cpf")
+	public Paciente buscar(String cpf) {
+
 		Paciente paciente = service.buscarPorCpf(cpf);
-				
+
 		return paciente;
 	}
-	
+
 	@PostMapping("/salvar")
-	public Paciente salvar (@RequestBody Paciente paciente) {
-		
+	public Paciente salvar(@RequestBody Paciente paciente) {
+
 		Paciente pac = service.salvarPaciente(paciente);
-		
-		return pac;
-	}
-	@GetMapping("/chamar")
-	public Optional<Paciente> chamar(Integer id ) {
-		
-		Optional<Paciente> paciente = service.buscarPorId(id);
-		
+
 		return paciente;
-		
+	}
+
+	@GetMapping("/chamar_id")
+	public Optional<Paciente> chamar(Integer id) {
+
+		Optional<Paciente> paciente = service.buscarPorId(id);
+
+		return paciente;
+
 	}
 }

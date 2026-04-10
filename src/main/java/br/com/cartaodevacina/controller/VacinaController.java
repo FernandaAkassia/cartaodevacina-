@@ -16,13 +16,13 @@ public class VacinaController {
 
 	@Autowired
 	VacinaService service;
-	
+
 	@GetMapping("/pegarTodas")
-	public List<Vacina> pegarTodas(){
-		
+	public List<Vacina> pegarTodas() {
+
 		List<Vacina> pegarTodas = service.buscarTodas();
-		return  pegarTodas;
-		
+		return pegarTodas;
+
 	}
-	
+
 }

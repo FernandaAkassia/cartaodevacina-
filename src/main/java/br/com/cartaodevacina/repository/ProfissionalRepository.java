@@ -8,6 +8,6 @@ import br.com.cartaodevacina.entity.Profissional;
 @Repository
 public interface ProfissionalRepository extends JpaRepository<Profissional, Integer> {
 
-	boolean existsByCpfAndSenha(String Cpf, String Senha);
+	Profissional findByCpfAndSenha(String Cpf, String Senha);
 
 }

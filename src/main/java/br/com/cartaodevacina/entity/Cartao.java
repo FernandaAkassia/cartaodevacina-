@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CartaoVacina {
+public class Cartao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -13,21 +13,16 @@ import br.com.cartaodevacina.servece.UbsService;
 @RestController
 @RequestMapping("/ubs")
 public class UbsController {
-	
+
 	@Autowired
 	UbsService service;
-	
+
 	@GetMapping("/encontrar")
 	public List<Ubs> list(String palavra) {
-		
-		List<Ubs> lista = service.buscarPorAproximacao(palavra);
-		return lista; 
-		
-		
-	
+
+		List<Ubs> listaUbs = service.buscarPorAproximacao(palavra);
+		return listaUbs;
+
 	}
-	
 
-
-	
 }

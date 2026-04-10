@@ -9,31 +9,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.cartaodevacina.entity.CartaoVacina;
-import br.com.cartaodevacina.servece.CartaoVacinaService;
+import br.com.cartaodevacina.entity.Cartao;
+import br.com.cartaodevacina.servece.CartaoService;
 
 @RestController
 @RequestMapping("/cartaovacina")
-public class CartaoVacinaController {
+public class CartaoController {
 
 	@Autowired
-	CartaoVacinaService service;
+	CartaoService service;
 
 	@GetMapping("/buscar")
-	public List<CartaoVacina> buscar(String cpf) {
+	public List<Cartao> buscar(String cpf) {
 
-		List<CartaoVacina> list = service.buscaPorCpf(cpf);
+		List<Cartao> list = service.buscaPorCpf(cpf);
 
 		return list;
 
 	}
 
 	@PostMapping("/salvar")
-	public CartaoVacina salvar(@RequestBody CartaoVacina cartaoVacina) {
+	public Cartao salvar(@RequestBody Cartao cartaoVacina) {
 
-		CartaoVacina cv = service.salvar(cartaoVacina);
+		Cartao cartao = service.salvar(cartaoVacina);
 
-		return cv;
+		return cartao;
 	}
 
 }
