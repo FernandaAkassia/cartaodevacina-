@@ -9,7 +9,7 @@ import br.com.cartaodevacina.entity.Profissional;
 import br.com.cartaodevacina.servece.ProfissionalService;
 
 @RestController
-@RequestMapping("/profissinoal")
+@RequestMapping("/profissional")
 public class ProfissionalController {
 
 	@Autowired
