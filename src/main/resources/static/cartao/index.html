@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      /* horizontal */
+      align-items: center;
+      /* vertical */
+      height: 100vh;
+    }
+
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 300px;
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      background: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #166fe5;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <form class="login-box">
+      <h1>Login</h1>
+
+      <input id="CPF" type="text" placeholder="CPF">
+      <input id="Senha" type="password" placeholder="Senha">
+
+      <p id="erro" style="color: red;"></p>
+      <button>Entrar</button>
+
+    </form>
+  </div>
+
+  <script>
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const cpf = document.getElementById("CPF").value;
+      const senha = document.getElementById("Senha").value;
+      const erro = document.getElementById("erro");
+
+      erro.textContent = "";
+
+      if (!cpf || !senha) {
+        erro.textContent = "Preencha todos os campos";
+        return;
+      }
+
+      if (cpf === "12345678900" && senha === "123456") {
+        erro.style.color = "green";
+        erro.textContent = "Login realizado com sucesso!";
+      } else {
+        erro.style.color = "red";
+        erro.textContent = "CPF ou senha inválidos";
+      }
+    });
+  </script>
+
+</body>
+
+</html>
