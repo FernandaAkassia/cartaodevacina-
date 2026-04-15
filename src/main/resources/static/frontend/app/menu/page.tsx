@@ -13,7 +13,7 @@ export default function Home() {
             {/* BOTÃO MENU */}
             <button
                 onClick={() => setMenuAberto(!menuAberto)}
-                className="p-2 bg-gray-800 text-white m-2 z-50 relative rounded-md"
+                className="p-2 bg-gray-800 m-2 z-50 relative rounded-md"
             >
                 ☰
             </button>
@@ -28,8 +28,8 @@ export default function Home() {
 
             {/* MENU LATERAL */}
             <div
-                className={`fixed top-0 left-0 h-full w-64 bg-gray-950 text-white p-4 
-        transform transition-transform duration-300 ease-in-out z-40
+                className={`fixed top-0 left-0 h-full w-64 bg-gray-950 text-white p-4
+       transform transition-transform duration-300 ease-in-out z-40
         ${menuAberto ? "translate-x-0" : "-translate-x-full"}`}
             >
 
@@ -45,27 +45,31 @@ export default function Home() {
 
                     <button
                         onClick={() => router.push("/paciente")}
-                        className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-800 transition font-medium"
+                        className="w-full flex items-center gap-2 px-4 py-2
+                        rounded-lg text-gray-300 hover:bg-white/10 transition"
                     >
                         Cadastro Paciente
                     </button>
 
                     <button
                         onClick={() => router.push("/vacina")}
-                        className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-800 transition font-medium"
+                        className="w-full flex items-center gap-2 px-4 py-2 
+                        rounded-lg text-gray-300 hover:bg-white/10 transition"
                     >
                         Aplicar Vacina
                     </button>
 
                     <button
                         onClick={() => router.push("/cartao")}
-                        className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-800 transition font-medium">
+                        className="w-full flex items-center gap-2 px-4 py-2 
+                        rounded-lg text-gray-300 hover:bg-white/10 transition"
+                    >
                         Cartão Vacina
                     </button>
 
                     <button
                         className="blockw-full text-left px-4 py-2 text-red-500 hover:bg-gray-200">
-                            Sair
+                        Sair
                     </button>
 
                 </div>
