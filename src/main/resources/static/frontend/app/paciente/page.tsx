@@ -21,24 +21,38 @@ export default function Dashboard() {
   const router = useRouter();
   const [menuAberto, setMenuAberto] = useState(false);
 
+  const paciente = {
+    nome: nome,
+    cpf: cpf,
+    cep: cep,
+    endereco: endereco,
+    n: n,
+    estado: estado,
+    cidade: cidade,
+    bairro: bairro,
+    ddd: ddd,
+    telefone: telefone,
+    dataNascimento: dataNascimento,
+    sexo: sexo,
+    complemento: complemento
+  };
+
+  const pacienteSet = {
+
+    nome: setNome
+
+  }
+
+
+  const enderecoJson = {
+    endereco: setEndereco,
+    bairro: setBairro,
+    cidade: setCidade,
+    estado: setEstado,
+  };
+
   async function handleSalvar(e: any) {
     e.preventDefault();
-
-    const paciente = {
-      nome: nome,
-      cpf: cpf,
-      cep: cep,
-      endereco: endereco,
-      n: n,
-      estado: estado,
-      cidade: cidade,
-      bairro: bairro,
-      ddd: ddd,
-      telefone: telefone,
-      dataNascimento: dataNascimento,
-      sexo: sexo,
-      complemento: complemento
-    };
 
     try {
       const response = await fetch(
@@ -64,6 +78,20 @@ export default function Dashboard() {
   }
 
 
+  const buscarCpf = async (cpf: String) => {
+
+    const response = await fetch(`http://localhost:8080/paciente/buscar_cpf?cpf=${cpf}`);
+    const retornoCpf = await response.json();
+
+    if (!retornoCpf.erro) {
+
+      alert("CPF existente")
+      window.location.reload();
+
+    }
+  };
+
+
   const buscarCep = async (cep: String) => {
     const cepLimpo = cep.replace(/\D/g, "");
 
@@ -80,12 +108,8 @@ export default function Dashboard() {
       enderecoJson.estado(cepJson.uf);
     }
   };
-  const enderecoJson = {
-    endereco: setEndereco,
-    bairro: setBairro,
-    cidade: setCidade,
-    estado: setEstado,
-  };
+
+
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -164,6 +188,8 @@ export default function Dashboard() {
               placeholder="CPF"
               value={cpf}
               onChange={(e) => setCpf(e.target.value)}
+              onBlur={(e) => buscarCpf(e.target.value)}
+
             />
 
             <input
