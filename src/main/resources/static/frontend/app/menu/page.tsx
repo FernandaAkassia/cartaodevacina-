@@ -68,7 +68,7 @@ export default function Home() {
                     </button>
 
                     <button
-                        className="blockw-full text-left px-4 py-2 text-red-500 hover:bg-gray-200">
+                        className="rounded-lg blockw-full text-left px-4 py-2 text-red-500 hover:bg-gray-200">
                         Sair
                     </button>
 
@@ -78,7 +78,7 @@ export default function Home() {
             {/* CONTEÚDO */}
             <div className="p-6">
                 <div className="bg-gray-800 p-6 rounded-x1 shadow-md">
-                    <h1 className="text-2xl font-bold mb-2">Bem-vindo</h1>
+                    <h1 className="text-2xl font-bold mb-2">Bem-vindo!</h1>
                     <p className="text-gray-300">
                         Sistema de Cartão de Vacinação
                     </p>
