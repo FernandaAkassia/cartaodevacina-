@@ -68,6 +68,7 @@ export default function Home() {
                     </button>
 
                     <button
+                        onClick={() => router.push("/")}
                         className="rounded-lg blockw-full text-left px-4 py-2 text-red-500 hover:bg-gray-200">
                         Sair
                     </button>
