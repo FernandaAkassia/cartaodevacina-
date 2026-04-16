@@ -20,6 +20,7 @@ export default function Dashboard() {
   const [mensagem, setMensagem] = useState("");
   const router = useRouter();
   const [menuAberto, setMenuAberto] = useState(false);
+
   async function handleSalvar(e: any) {
     e.preventDefault();
 
@@ -55,11 +56,36 @@ export default function Dashboard() {
 
       localStorage.setItem("usuario", JSON.stringify(data));
 
-      router.push("/dashboard");
+      alert("Paciente Cadastrado Com Sucesso");
+      window.location.reload();
     } catch (error) {
       setMensagem("Erro ao conectar com o servidor");
     }
   }
+
+
+  const buscarCep = async (cep: String) => {
+    const cepLimpo = cep.replace(/\D/g, "");
+
+    if (cepLimpo.length !== 8)
+      return;
+
+    const response = await fetch(`http://viacep.com.br/ws/${cepLimpo}/json/`);
+    const cepJson = await response.json();
+
+    if (!cepJson.erro) {
+      enderecoJson.endereco(cepJson.logradouro);
+      enderecoJson.bairro(cepJson.bairro);
+      enderecoJson.cidade(cepJson.localidade);
+      enderecoJson.estado(cepJson.uf);
+    }
+  };
+  const enderecoJson = {
+    endereco: setEndereco,
+    bairro: setBairro,
+    cidade: setCidade,
+    estado: setEstado,
+  };
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -128,6 +154,7 @@ export default function Dashboard() {
 
         {/* FORM CENTRALIZADO */}
         <form
+          onSubmit={handleSalvar}
           className="bg-white p-8 rounded-xl shadow-md w-full max-w-[65%] flex flex-col gap-4">
 
           <div className="flex gap-1">
@@ -171,16 +198,19 @@ export default function Dashboard() {
 
             <input
               className="border w-[16%] p-2 rounded-md text-black bg-white placeholder-gray-600"
+              type="text"
               placeholder="Cep"
               value={cep}
               onChange={(e) => setCep(e.target.value)}
+              onBlur={(e) => buscarCep(e.target.value)}
             />
 
             <input
               className="border w-[75%] p-2 rounded-md text-black bg-white placeholder-gray-600"
               placeholder="Endereço"
               value={endereco}
-              onChange={(e) => setEndereco(e.target.value)}
+              onChange={(e) => setEndereco(e.target.value)
+              }
             />
 
             <input
