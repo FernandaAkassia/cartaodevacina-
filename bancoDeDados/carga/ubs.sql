@@ -1,5 +1,3 @@
-
-
 INSERT INTO ubs(nome,estado,bairro,cep,cnes,endereco,n,telefone) VALUES ('UNIDADE DE SAUDE LAGOA DOURADA','Foz do Iguaçu' ,'LAGOA DOURADA','85862330','7367341','RUA GRUTA','S/N',NULL);
 INSERT INTO ubs(nome,estado,bairro,cep,cnes,endereco,n,telefone) VALUES ('UNIDADE DE SAUDE DA FAM SENADOR ADALBERTO SENA','Cruzeiro do Sul' ,'AEROPORTO VELHO','69980000','2000202','AVENIDA 25 DE AGOSTO','S/N','(68) 3225968');
 INSERT INTO ubs(nome,estado,bairro,cep,cnes,endereco,n,telefone) VALUES ('POSTO DE SAUDE DO AGRESTE','Monteirópolis' ,'CENTRO','57440000','2008734','POVOADO AGRESTE','S/N',NULL);
