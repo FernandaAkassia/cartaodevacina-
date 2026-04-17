@@ -29,7 +29,7 @@ public class Profissional {
 	String nome;
 
 	@Column
-	Integer registro;
+	String registro;
 
 	@Column
 	@JsonIgnore

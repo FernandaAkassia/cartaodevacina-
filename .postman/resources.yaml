@@ -1,0 +1,7 @@
+# Use this workspace to collaborate
+workspace:
+  id: af09bf2c-897f-453d-8724-f412c6e818e4
+
+localResources:
+  collections:
+    - ..\CartaoVacina.postman_collection.json
