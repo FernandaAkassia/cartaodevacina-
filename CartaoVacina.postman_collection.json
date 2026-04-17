@@ -115,7 +115,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "",
+              "raw": "{\r\n    \"nome\": \"1\",\r\n    \"cpf\": \"1\",\r\n    \"cep\": \"04753160\",\r\n    \"endereco\": \"Rua Professor Soriano Magalhães\",\r\n    \"n\": \"11\",\r\n    \"estado\": \"SP\",\r\n    \"cidade\": \"São Paulo\",\r\n    \"bairro\": \"Jardim Promissão\",\r\n    \"ddd\": \"444\",\r\n    \"telefone\": \"4444444\",\r\n    \"dataNascimento\": \"2025-12-31\",\r\n    \"sexo\": \"Masculino\",\r\n    \"complemento\": \"44\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -203,30 +203,93 @@
               }
             },
             "url": {
-              "raw": "localhost:8080/profissinoal/login?cpf=1212&senha=wewe",
+              "raw": "localhost:8080/profissional/login?cpf=10363142436&senha=9411",
               "host": [
                 "localhost"
               ],
               "port": "8080",
               "path": [
-                "profissinoal",
+                "profissional",
                 "login"
               ],
               "query": [
                 {
                   "key": "cpf",
-                  "value": "1212",
-                  "type": "text"
+                  "value": "10363142436"
                 },
                 {
                   "key": "senha",
-                  "value": "wewe",
-                  "type": "text"
+                  "value": "9411"
                 }
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "ok",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/profissinoal/login?cpf=10363142436&senha=9411",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "profissinoal",
+                    "login"
+                  ],
+                  "query": [
+                    {
+                      "key": "cpf",
+                      "value": "10363142436"
+                    },
+                    {
+                      "key": "senha",
+                      "value": "9411"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sat, 11 Apr 2026 17:16:49 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"nome\": \"Anderson Galindro\",\n    \"registro\": 5454,\n    \"cargo\": \"Dono\",\n    \"cpf\": \"10363142436\",\n    \"cep\": null,\n    \"endereco\": null,\n    \"n\": \"1\",\n    \"estado\": null,\n    \"cidade\": null,\n    \"bairro\": null,\n    \"ddd\": \"81\",\n    \"telefone\": null,\n    \"email\": \"real.fake@gmail.com\"\n}"
+            }
+          ]
         }
       ]
     },
@@ -283,7 +346,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "",
+              "raw": "{\r\n    \"paciente\": {\r\n        \"id\": 1\r\n    },\r\n    \"vacina\": {\r\n        \"id\": 1\r\n    },\r\n    \"lote\": \"loteDosDeuses\",\r\n    \"ubs\": {\r\n        \"id\": 777\r\n    },\r\n    \"profissional\": {\r\n        \"id\": 1\r\n    }\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
