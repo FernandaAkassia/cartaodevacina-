@@ -1,5 +1,8 @@
 package br.com.cartaodevacina.entity;
 
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -28,8 +31,12 @@ public class Profissional {
 	@Column
 	String nome;
 
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	@Column
-	Integer registro;
+	LocalDate dataNascimento;
+
+	@Column
+	String registro;
 
 	@Column
 	@JsonIgnore

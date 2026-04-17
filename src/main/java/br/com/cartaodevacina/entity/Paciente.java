@@ -1,5 +1,9 @@
 package br.com.cartaodevacina.entity;
 
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +32,10 @@ public class Paciente {
 
 	@Column
 	String cpf;
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	@Column
+	LocalDate dataNascimento;
 
 	@Column
 	String cep;
