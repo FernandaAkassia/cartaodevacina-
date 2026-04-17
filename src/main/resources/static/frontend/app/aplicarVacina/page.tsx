@@ -3,50 +3,112 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Dashboard() {
- 
-  const [pacienteId, setCpf] = useState("");
-  const [vacina, setVacina] = useState("");
-  const [profissional, setProfissional] = useState("");
-  const [ubs, setUbs] = useState("");
+  const [nome, setNome] = useState("");
+  const [cpf, setCpf] = useState("");
   const [lote, setLote] = useState("");
-
+  const [vacinas, setVacinas] = useState<Vacina[]>([]);
+  const [vacinaSelecionada, setVacinaSelecionada] = useState("");
+  const [ubs, setUbs] = useState<Vacina[]>([]);
+  const [ubsSelecionada, setUbsSelecionada] = useState("");
+  const [ubsDigitada, setUbsDigitada] = useState("");
+  const [dataDeAplicacao, setDataDeAplicacao] = useState("");
+  const [dataDeAplicacaoVolta, setDataDeAplicacaoVolta] = useState("");
   const [mensagem, setMensagem] = useState("");
   const router = useRouter();
   const [menuAberto, setMenuAberto] = useState(false);
-  
+  const [nomeProfissional, setNomeProfissional] = useState(() => {
+    const usuario = localStorage.getItem("usuario");
+    return usuario ? JSON.parse(usuario).nome : "";
+  });
+  const [registroProfissional, setRegistroProfissional] = useState(() => {
+    const usuario = localStorage.getItem("usuario");
+    return usuario ? JSON.parse(usuario).registro : "";
+  });
+  const paciente = {
+    nome: nome,
+    cpf: cpf
+  };
+  console.log(localStorage.getItem("usuario"))
+  const pacienteSet = {
+    nome: setNome
+  }
+
+  type Vacina = {
+    id: number;
+    nome: string;
+    categoria: string;
+  };
+
+  type Ubs = {
+    id: number;
+    nome: string;
+  };
+
+
   async function handleSalvar(e: any) {
     e.preventDefault();
 
-    const cartao = {
-      paciente: pacienteId,
-      vacina: vacina,
-      profissional: profissional,
-      ubs: ubs,
-      lote: lote
-
-    };
-
     try {
       const response = await fetch(
-        `http://localhost:8080/cartaovacina/salvar`, {
+        `http://localhost:8080/paciente/salvar`, {
 
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(cartao)
+        body: JSON.stringify(paciente)
       });
+
       const data = await response.json();
 
       console.log(data);
 
       localStorage.setItem("usuario", JSON.stringify(data));
 
-      alert("Vacina Cadastrada!")
+      alert("Paciente Cadastrado Com Sucesso");
+      window.location.reload();
     } catch (error) {
       setMensagem("Erro ao conectar com o servidor");
     }
   }
+
+
+  const buscarCpf = async (cpf: String) => {
+
+    const response = await fetch(`http://localhost:8080/paciente/buscar_cpf?cpf=${cpf}`);
+    const retornoCpf = await response.json();
+
+    if (retornoCpf) {
+      buscarVacina()
+      pacienteSet.nome(retornoCpf.nome);
+
+    }
+  };
+
+  const buscarVacina = async () => {
+
+    const response = await fetch(`http://localhost:8080/vacina/pegarTodas`);
+    const retornoVacina = await response.json();
+
+    setVacinas(retornoVacina);
+
+  };
+
+  const buscarUbs = async (ubs: String) => {
+
+    if (ubs.length < 6) return;
+
+
+    const response = await fetch(`http://localhost:8080/ubs/encontrar?palavra=${ubs}`);
+    const retornoUbs = await response.json();
+
+    setUbs(retornoUbs);
+
+
+  };
+
+
+
 
   return (
     <div className="min-h-screen bg-gray-900 text-white">
@@ -115,6 +177,7 @@ export default function Dashboard() {
 
         {/* FORM CENTRALIZADO */}
         <form
+          onSubmit={handleSalvar}
           className="bg-white p-8 rounded-xl shadow-md w-full max-w-[65%] flex flex-col gap-4">
 
           <div className="flex gap-1">
@@ -124,6 +187,8 @@ export default function Dashboard() {
               placeholder="CPF"
               value={cpf}
               onChange={(e) => setCpf(e.target.value)}
+              onBlur={(e) => buscarCpf(e.target.value)}
+
             />
 
             <input
@@ -131,101 +196,97 @@ export default function Dashboard() {
               placeholder="Nome"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
+              disabled
             />
 
             <input type="date"
               className="border w-[20%] p-2 rounded-md text-black bg-white placeholder-gray-600"
-              placeholder="DataDeNascimento"
-              value={dataNascimento}
-              onChange={(e) => setDataNascimento(e.target.value)}
+              placeholder="DataDeAplicacao"
+              value={dataDeAplicacao}
+              onChange={(e) => setDataDeAplicacao(e.target.value)}
+            />
+            <input type="date"
+              className="border w-[20%] p-2 rounded-md text-black bg-white placeholder-gray-600"
+              placeholder="DataDeAplicacaoVolta"
+              value={dataDeAplicacaoVolta}
+              onChange={(e) => setDataDeAplicacaoVolta(e.target.value)}
+            />
+          </div>
+
+          <div className="flex gap-1">
+
+            <select
+              className="border p-2 rounded-md text-black bg-white"
+              value={vacinaSelecionada}
+              onChange={(e) => setVacinaSelecionada(e.target.value)}
+            >
+              <option value="">Selecione uma vacina</option>
+
+              {vacinas.map((vacina, index) => (
+                <option key={index} value={vacina.id}>
+                  {vacina.nome + " - " + vacina.categoria}
+                </option>
+              ))}
+            </select>
+
+            <input
+              className="border  w-[10%] p-2 rounded-md text-black bg-white placeholder-gray-600"
+              placeholder="lote"
+              value={lote}
+              onChange={(e) => setLote(e.target.value)}
+
             />
 
-            <div className="w-[15%] flex flex-col">
+            <input
+              className="border  w-[40%] p-2 rounded-md text-black bg-white placeholder-gray-600"
+              placeholder="nomeProfissional"
+              value={nomeProfissional}
+              disabled
+            />
 
-              <select
-                className="h-[42px] border p-3 rounded-md text-black bg-white"
-                value={sexo}
-                onChange={(e) => setSexo(e.target.value)}
-              >
-                <option value="">Selecione</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Feminino">Feminino</option>
-              </select>
+            <input
+              className="border  w-[25%] p-2 rounded-md text-black bg-white placeholder-gray-600"
+              placeholder="registroProfissional"
+              value={registroProfissional}
+              disabled
+            />
+
+
+          </div>
+          <div className="flex gap-1">
+
+            <div className="w-[70%] relative ">
+
+              <input
+                className="border w-full p-2 rounded-md text-black bg-white"
+                placeholder="Digite a UBS"
+                value={ubsDigitada}
+                onChange={(e) => {
+                  setUbsDigitada(e.target.value);
+                  buscarUbs(e.target.value);
+                }}
+              />
+
+              {ubs.length > 0 && (
+                <div className="absolute w-full bg-white border rounded-md mt-1 z-10">
+                  {ubs.map((item, index) => (
+                    <div
+                      key={index}
+                      className="p-2 hover:bg-gray-200 cursor-pointer text-black"
+                      onClick={() => {
+                        setUbsDigitada(item.nome);
+                        setUbsSelecionada(item.id.toString());
+                        setUbs([]); // limpa lista
+                      }}
+                    >
+                      {item.nome}
+                    </div>
+                  ))}
+                </div>
+              )}
+
             </div>
           </div>
-
-          <div className="flex gap-1">
-
-            <input
-              className="border w-[16%] p-2 rounded-md text-black bg-white placeholder-gray-600"
-              placeholder="Cep"
-              value={cep}
-              onChange={(e) => setCep(e.target.value)}
-            />
-
-            <input
-              className="border w-[75%] p-2 rounded-md text-black bg-white placeholder-gray-600"
-              placeholder="Endereço"
-              value={endereco}
-              onChange={(e) => setEndereco(e.target.value)}
-            />
-
-            <input
-              className="border w-[10%] p-2 rounded-md text-black bg-white placeholder-gray-600"
-              placeholder="N"
-              value={n}
-              onChange={(e) => setN(e.target.value)}
-            />
-          </div>
-
-          <div className="flex gap-1">
-
-            <input
-              className="border w-[30%] p-2 rounded-md text-black bg-white placeholder-gray-600"
-              placeholder="Estado"
-              value={estado}
-              onChange={(e) => setEstado(e.target.value)}
-            />
-
-            <input
-              className="border w-[30%] p-2 rounded-md text-black bg-white placeholder-gray-600"
-              placeholder="Cidade"
-              value={cidade}
-              onChange={(e) => setCidade(e.target.value)}
-            />
-
-            <input
-              className="border w-[40%] p-2 rounded-md text-black bg-white placeholder-gray-600"
-              placeholder="Bairro"
-              value={bairro}
-              onChange={(e) => setBairro(e.target.value)}
-            />
-          </div>
-
-          <div className="flex justify-center gap-1">
-
-            <input
-              className="border w-[75%] p-2 rounded-md text-black bg-white placeholder-gray-600"
-              placeholder="complemento"
-              value={complemento}
-              onChange={(e) => setComplemento(e.target.value)}
-            />
-            <input
-              className="border w-[10%] p-2 rounded-md text-black bg-white placeholder-gray-600"
-              placeholder="ddd"
-              value={ddd}
-              onChange={(e) => setDdd(e.target.value)}
-            />
-
-            <input
-              className="border w-[15%] p-2 rounded-md text-black bg-white placeholder-gray-600"
-              placeholder="Telefone"
-              value={telefone}
-              onChange={(e) => setTelefone(e.target.value)}
-            />
-
-          </div>
-
           <button
             className="bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 transition "
             type="submit"
