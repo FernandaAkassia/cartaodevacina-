@@ -1,5 +1,9 @@
 package br.com.cartaodevacina.entity;
 
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -43,5 +47,13 @@ public class Cartao {
 	@JoinColumn
 	@ManyToOne
 	Profissional profissional;
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	@Column
+	LocalDate dataAplicacao;
+
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	@Column
+	LocalDate dataRetorno;
 
 }
