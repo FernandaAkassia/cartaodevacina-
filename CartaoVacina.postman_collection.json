@@ -263,11 +263,13 @@
               },
               "status": "OK",
               "code": 200,
-              "_postman_previewlanguage": null,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
-                  "value": "application/json"
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
                 },
                 {
                   "key": "Transfer-Encoding",
@@ -317,7 +319,7 @@
               }
             },
             "url": {
-              "raw": "localhost:8080/cartaovacina/buscar?cpf=8301780401",
+              "raw": "localhost:8080/cartaovacina/buscar?cpf=11111111111",
               "host": [
                 "localhost"
               ],
@@ -329,12 +331,85 @@
               "query": [
                 {
                   "key": "cpf",
-                  "value": "8301780401"
+                  "value": "11111111111"
                 }
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "ok",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:8080/cartaovacina/buscar?cpf=11111111111",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "cartaovacina",
+                    "buscar"
+                  ],
+                  "query": [
+                    {
+                      "key": "cpf",
+                      "value": "11111111111"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Method"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Access-Control-Request-Headers"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 20 Apr 2026 22:14:54 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"paciente\": {\n            \"id\": 1,\n            \"nome\": \"EduardinhoDosTeclados\",\n            \"cpf\": \"11111111111\",\n            \"dataNascimento\": \"10/10/1995\",\n            \"cep\": \"54230120\",\n            \"endereco\": \"sbecedário\",\n            \"n\": \"09\",\n            \"estado\": \"pe\",\n            \"cidade\": \"abc\",\n            \"bairro\": \"xpto\",\n            \"ddd\": \"81\",\n            \"telefone\": \"8488557444\"\n        },\n        \"vacina\": {\n            \"id\": 1,\n            \"nome\": \"BCG\",\n            \"categoria\": \"Recém-Nascido\"\n        },\n        \"lote\": \"21\",\n        \"ubs\": {\n            \"id\": 1,\n            \"nome\": \"UNIDADE DE SAUDE LAGOA DOURADA\",\n            \"cep\": \"85862330\",\n            \"endereco\": \"RUA GRUTA\",\n            \"n\": \"S/N\",\n            \"estado\": \"Foz do Iguaçu\",\n            \"cidade\": null,\n            \"bairro\": \"LAGOA DOURADA\",\n            \"ddd\": null,\n            \"telefone\": null,\n            \"cnes\": \"7367341\"\n        },\n        \"profissional\": {\n            \"id\": 1,\n            \"nome\": \"ZezinhoDosTeclados\",\n            \"dataNascimento\": null,\n            \"registro\": \"5454\",\n            \"cargo\": \"Dono\",\n            \"cpf\": \"1\",\n            \"cep\": null,\n            \"endereco\": null,\n            \"n\": \"1\",\n            \"estado\": null,\n            \"cidade\": null,\n            \"bairro\": null,\n            \"ddd\": \"81\",\n            \"telefone\": null,\n            \"email\": \"real.fake@gmail.com\"\n        },\n        \"dataAplicacao\": \"04/04/1995\",\n        \"dataRetorno\": \"10/10/1995\"\n    },\n    {\n        \"id\": 2,\n        \"paciente\": {\n            \"id\": 1,\n            \"nome\": \"EduardinhoDosTeclados\",\n            \"cpf\": \"11111111111\",\n            \"dataNascimento\": \"10/10/1995\",\n            \"cep\": \"54230120\",\n            \"endereco\": \"sbecedário\",\n            \"n\": \"09\",\n            \"estado\": \"pe\",\n            \"cidade\": \"abc\",\n            \"bairro\": \"xpto\",\n            \"ddd\": \"81\",\n            \"telefone\": \"8488557444\"\n        },\n        \"vacina\": {\n            \"id\": 2,\n            \"nome\": \"Hepatite B (1ª dose)\",\n            \"categoria\": \"Recém Nascido\"\n        },\n        \"lote\": \"26\",\n        \"ubs\": {\n            \"id\": 2,\n            \"nome\": \"UNIDADE DE SAUDE DA FAM SENADOR ADALBERTO SENA\",\n            \"cep\": \"69980000\",\n            \"endereco\": \"AVENIDA 25 DE AGOSTO\",\n            \"n\": \"S/N\",\n            \"estado\": \"Cruzeiro do Sul\",\n            \"cidade\": null,\n            \"bairro\": \"AEROPORTO VELHO\",\n            \"ddd\": null,\n            \"telefone\": \"(68) 3225968\",\n            \"cnes\": \"2000202\"\n        },\n        \"profissional\": {\n            \"id\": 1,\n            \"nome\": \"ZezinhoDosTeclados\",\n            \"dataNascimento\": null,\n            \"registro\": \"5454\",\n            \"cargo\": \"Dono\",\n            \"cpf\": \"1\",\n            \"cep\": null,\n            \"endereco\": null,\n            \"n\": \"1\",\n            \"estado\": null,\n            \"cidade\": null,\n            \"bairro\": null,\n            \"ddd\": \"81\",\n            \"telefone\": null,\n            \"email\": \"real.fake@gmail.com\"\n        },\n        \"dataAplicacao\": \"10/10/1995\",\n        \"dataRetorno\": \"12/12/1995\"\n    }\n]"
+            }
+          ]
         },
         {
           "name": "SalvarCartão",
