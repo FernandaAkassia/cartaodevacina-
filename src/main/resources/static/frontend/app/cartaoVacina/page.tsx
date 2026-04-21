@@ -93,8 +93,8 @@ export default function CartaoVacina() {
 
           <button
             onClick={() => router.push("/paciente")}
-            className="w-full flex items-center gap-2 px-4 py-2
-                        rounded-lg text-white bg-gradient-to-r bg-blue-600">
+            className="w-full flex items-center gap-2 px-4 py-2 
+                        rounded-lg text-gray-300 hover:bg-white/10 transition">
             Cadastro Paciente
           </button>
 
@@ -107,8 +107,8 @@ export default function CartaoVacina() {
 
           <button
             onClick={() => router.push("/cartaoVacina")}
-            className="w-full flex items-center gap-2 px-4 py-2 
-                        rounded-lg text-gray-300 hover:bg-white/10 transition">
+            className="w-full flex items-center gap-2 px-4 py-2
+                        rounded-lg text-white bg-gradient-to-r bg-blue-600">
             Cartão Vacina
           </button>
 
