@@ -33,7 +33,7 @@ public class Profissional {
 	@Column
 	String nome;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column
 	LocalDate dataNascimento;
 

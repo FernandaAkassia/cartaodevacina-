@@ -36,7 +36,7 @@ public class Paciente {
 	@CPF
 	String cpf;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column
 	LocalDate dataNascimento;
 

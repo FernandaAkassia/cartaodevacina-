@@ -48,11 +48,11 @@ public class Cartao {
 	@ManyToOne
 	Profissional profissional;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column
 	LocalDate dataAplicacao;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column
 	LocalDate dataRetorno;
 
