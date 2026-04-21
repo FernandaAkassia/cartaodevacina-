@@ -152,7 +152,7 @@ export default function Dashboard() {
           </button>
 
           <button
-            onClick={() => router.push("/vacina")}
+            onClick={() => router.push("/aplicarVacina")}
             className="w-full flex items-center gap-2 px-4 py-2 
                         rounded-lg text-gray-300 hover:bg-white/10 transition">
             Aplicar Vacina
