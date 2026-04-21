@@ -2,6 +2,8 @@ package br.com.cartaodevacina.entity;
 
 import java.time.LocalDate;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.Column;
@@ -30,7 +32,8 @@ public class Paciente {
 	@Column
 	String nome;
 
-	@Column
+	@Column(unique = true)
+	@CPF
 	String cpf;
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")

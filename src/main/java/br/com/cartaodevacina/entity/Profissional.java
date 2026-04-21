@@ -2,6 +2,8 @@ package br.com.cartaodevacina.entity;
 
 import java.time.LocalDate;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -45,7 +47,8 @@ public class Profissional {
 	@Column
 	String cargo;
 
-	@Column
+	@Column(unique = true)
+	@CPF
 	String cpf;
 
 	@Column
