@@ -151,14 +151,14 @@ export default function Dashboard() {
           </button>
 
           <button
-            onClick={() => router.push("/vacina")}
+            onClick={() => router.push("/aplicarVacina")}
             className="w-full flex items-center gap-2 px-4 py-2 
                         rounded-lg text-gray-300 hover:bg-white/10 transition">
             Aplicar Vacina
           </button>
 
           <button
-            onClick={() => router.push("/cartao")}
+            onClick={() => router.push("/cartaoVacina")}
             className="w-full flex items-center gap-2 px-4 py-2 
                         rounded-lg text-gray-300 hover:bg-white/10 transition">
             Cartão Vacina
@@ -204,8 +204,10 @@ export default function Dashboard() {
               placeholder="DataDeAplicacao"
               value={dataDeAplicacao}
               onChange={(e) => setDataDeAplicacao(e.target.value)}
+              
             />
             <input type="date"
+              min={dataDeAplicacao}
               className="border w-[20%] p-2 rounded-md text-black bg-white placeholder-gray-600"
               placeholder="DataDeAplicacaoVolta"
               value={dataDeAplicacaoVolta}
