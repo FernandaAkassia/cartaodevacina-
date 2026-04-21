@@ -11,5 +11,6 @@ CREATE TABLE `paciente` (
   `n` varchar(255) DEFAULT NULL,
   `nome` varchar(255) DEFAULT NULL,
   `telefone` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UK_CPF` (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
