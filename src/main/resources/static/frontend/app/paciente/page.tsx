@@ -65,18 +65,29 @@ export default function Dashboard() {
         body: JSON.stringify(paciente)
       });
       const data = await response.json();
-
-      console.log(data);
-
-      localStorage.setItem("usuario", JSON.stringify(data));
-
+      
       alert("Paciente Cadastrado Com Sucesso");
-      window.location.reload();
+      limparCampo()
     } catch (error) {
       setMensagem("Erro ao conectar com o servidor");
     }
   }
+  function limparCampo() {
+    setBairro("");
+    setCidade("");
+    setEstado("");
+    setN("");
+    setEndereco("");
+    setCep("");
+    setCpf("");
+    setNome("");
+    setComplemento("");
+    setSexo("");
+    setDataNascimento("");
+    setTelefone("");
+    setDdd("");
 
+  }
 
   const buscarCpf = async (cpf: String) => {
 
