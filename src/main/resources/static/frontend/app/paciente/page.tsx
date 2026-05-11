@@ -198,6 +198,7 @@ export default function Dashboard() {
               className="border w-[20%] p-2 rounded-md text-black bg-white placeholder-gray-600"
               placeholder="CPF"
               value={cpf}
+              maxLength={11}
               onChange={(e) => setCpf(e.target.value)}
               onBlur={(e) => buscarCpf(e.target.value)}
 
@@ -293,7 +294,8 @@ export default function Dashboard() {
             <input
               className="border w-[10%] p-2 rounded-md text-black bg-white placeholder-gray-600"
               placeholder="ddd"
-              value={ddd}
+              value={ddd}  
+              maxLength={2}        
               onChange={(e) => setDdd(e.target.value)}
             />
 
@@ -301,6 +303,7 @@ export default function Dashboard() {
               className="border w-[15%] p-2 rounded-md text-black bg-white placeholder-gray-600"
               placeholder="Telefone"
               value={telefone}
+              maxLength={9}
               onChange={(e) => setTelefone(e.target.value)}
             />
 
